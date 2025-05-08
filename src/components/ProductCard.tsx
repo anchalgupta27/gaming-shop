@@ -23,7 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {product.description && (
           <p className="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p>
         )}
-        <div className="mt-auto text-lg font-bold text-blue-600">${product.price.toFixed(2)}</div>
+        <div className="mt-auto text-lg font-bold text-blue-600">₹{product.price.toFixed(2)}</div>
       </div>
     </div>
   );
