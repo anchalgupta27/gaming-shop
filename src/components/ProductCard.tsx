@@ -1,32 +1,29 @@
-type Product = {
-  name: string;
-  description: string;
-  price: number;
-  imageUrl: string;
-};
+import React from 'react';
 
-type ProductCardProps = {
-  product: Product;
-};
+interface ProductCardProps {
+  product: {
+    _id: string;
+    name: string;
+    price: number;
+    imageUrl: string;
+    description?: string;
+  };
+}
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden transition hover:shadow-lg hover:scale-[1.02] transform duration-300 h-full flex flex-col">
       <img
         src={product.imageUrl}
         alt={product.name}
         className="w-full h-48 object-cover"
       />
-      <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
-        <p className="text-sm text-gray-600 mt-1 line-clamp-2">
-          {product.description}
-        </p>
-        <div className="mt-3 flex justify-between items-center">
-          <span className="text-blue-600 font-bold text-lg">
-          ₹{product.price.toFixed(2)}
-          </span>
-        </div>
+      <div className="p-4 flex flex-col flex-1">
+        <h2 className="text-xl font-semibold text-gray-800 mb-2 truncate">{product.name}</h2>
+        {product.description && (
+          <p className="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p>
+        )}
+        <div className="mt-auto text-lg font-bold text-blue-600">${product.price.toFixed(2)}</div>
       </div>
     </div>
   );

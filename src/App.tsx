@@ -23,7 +23,9 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={<AppLayout />}>
-          <Route index element={<ProductsPage/>} />
+          <Route index element={   <PrivateRoute user={user}>
+                <ProductsPage />
+              </PrivateRoute>} />
           <Route path='/login' element={<LoginPage />} />
 
           <Route

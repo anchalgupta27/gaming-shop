@@ -12,9 +12,6 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-
-
-
 export default function Nav() {
 
     const [navigation, setNavigation] = useState(initialNavigation);
@@ -73,15 +70,11 @@ export default function Nav() {
 
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
-              <div>
+            <div>
                 <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
-                  <img
-                    alt=""
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    className="size-8 rounded-full"
-                  />
+                  <span className="text-white">Profile</span> {/* Added text-white here */}
                 </MenuButton>
               </div>
               <MenuItems
